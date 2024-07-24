@@ -238,10 +238,19 @@ function ProductList() {
     fontSize: '30px',
     textDecoration: 'none',
    }
+
+const handleAddToCart = (product) => {
+  dispatch(addItem(product));
+  setAddedToCart((prevState) => ({
+     ...prevState,
+     [product.name]: true, // Set the product name as key and value as true to indicate it's added to cart
+   }));
+};
    const handleCartClick = (e) => {
     e.preventDefault();
     setShowCart(true); // Set showCart to true when cart icon is clicked
 };
+
 const handlePlantsClick = (e) => {
     e.preventDefault();
     setShowPlants(true); // Set showAboutUs to true when "About Us" link is clicked
